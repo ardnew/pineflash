@@ -54,7 +54,6 @@ blisp-linux64:
 
 blisp-other:
 	git clone --recursive "$(BLISP_OTHER_URL)" "$(BLISP_OTHER_PKG)"
-	cd "$(BLISP_OTHER_PKG)" && git submodule update --init --recursive
 	cd "$(BLISP_OTHER_PKG)" && mkdir -p build && cd build && cmake -DBLISP_BUILD_CLI=ON .. && cmake --build .
 	install -D -m 0755 "./$(BLISP_OTHER_PKG)/build/tools/blisp/blisp" "$(PREFIX)/bin/blisp"
 	rm -rf "$(BLISP_OTHER_PKG)"
